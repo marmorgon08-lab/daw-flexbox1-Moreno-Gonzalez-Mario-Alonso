@@ -1,0 +1,27 @@
+1. Accesibilidad: Contraste de color en cabecera y pie
+
+Para garantizar la accesibilidad (nivel AA de las WCAG), se ha comprobado el contraste del texto blanco (#ffffff) sobre la zona más clara del degradado (#1f5088).
+
+Valor de contraste obtenido: 8.46:1 (El nivel AA exige un mínimo de 4.5:1 para texto normal, cumpliendo holgadamente).
+
+Método de medición: Se ha medido utilizando las Herramientas de Desarrollo (DevTools) de Chrome/Edge. Al inspeccionar el elemento del texto y comprobar el selector de color de la propiedad color, se introdujo el color de fondo más claro del degradado (#1f5088) mediante el cuentagotas para verificar el valor exacto de 8.46.
+
+2. Estilos de Marca (Sombra en la Cabecera)
+
+Texto «DAW Mobility»: Incorpora una sombra discreta y elegante definida como text-shadow: 0 0.0625rem 0.125rem var(--sombra-texto); (negro al 45% de opacidad), lo que aporta relieve sin afectar a la legibilidad del texto blanco sobre el fondo degradado.
+
+3. Relieve en Tarjetas y Bloques
+
+Fieldsets y Cuadro de Ayuda (.grupo, .ayuda): Cuentan con una sombra suave y envolvente sin desplazamiento lateral, aplicando box-shadow: 0 0.125rem 0.5rem var(--sombra-bloques); (azul oscuro #12355b al 20% de opacidad). Está diseñada para renderizarse de forma completa sin cortes en los bordes.
+
+4. Animaciones y Comportamiento de Botones
+
+Transiciones optimizadas: Los botones disponen de una transición suave de 0.2s declarando propiedades concretas (background-color, transform, box-shadow) en lugar de all.
+
+Interacción (:hover y :focus-visible): Al pasar el ratón o enfocar con el teclado, el fondo cambia de tonalidad y el botón se eleva 2px (translateY(-2px)). El contorno de foco predeterminado del navegador se conserva intacto para garantizar la accesibilidad en la navegación por teclado.
+
+Botón principal: Cuenta con una sombra en reposo (0.125rem de desplazamiento vertical y 0.25rem de desenfoque) que se reduce casi por completo al recibir un clic (:active), simulando el efecto físico de pulsación.
+
+5. Animación de Pasos de Ayuda
+
+Efecto de escala en círculos: Al situar el ratón sobre cualquier paso del cuadro de ayuda (.ayuda__paso:hover), el círculo numerado correspondiente (.ayuda__numero) aumenta un 10% su tamaño mediante transform: scale(1.1) de forma suave durante 0.2s. El uso de transformaciones CSS evita alterar el diseño estructural (DOM), impidiendo desplazamientos no deseados o solapamientos en el texto de los pasos adyacentes.
